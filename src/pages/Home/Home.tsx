@@ -102,77 +102,79 @@ export const Home: React.FC = () => {
   return (
     <>
       <Header />
-      <Hero />
+      <main>
+        <Hero />
 
-      <section className="generator" id="generator">
-        <div className="generator__header">
-          <h2 className="generator__title">Create Your QR Code</h2>
-          <p className="generator__subtitle">Configure your QR code and download it in seconds</p>
-        </div>
-
-        <div className="generator__layout">
-          <div className="generator__left">
-            <ConfigPanel
-              config={config}
-              errors={errors}
-              onConfigChange={handleConfigChange}
-            />
+        <section className="generator" id="generator">
+          <div className="generator__header">
+            <h2 className="generator__title">Create Your QR Code</h2>
+            <p className="generator__subtitle">Configure your QR code and download it in seconds</p>
           </div>
 
-          <div className="generator__right">
-            <QRPreview
-              config={config}
-              qrData={qrData}
-              onReset={handleReset}
-            />
-          </div>
-        </div>
-      </section>
+          <div className="generator__layout">
+            <div className="generator__left">
+              <ConfigPanel
+                config={config}
+                errors={errors}
+                onConfigChange={handleConfigChange}
+              />
+            </div>
 
-      <Features />
-      <section className="faq" id="faq">
-        <div className="faq__inner">
-          <h2 className="faq__title">Frequently Asked Questions</h2>
-          <div className="faq__list">
-            <article className="faq__item">
-              <h3 className="faq__question">Is QuickQR Tools free to use?</h3>
-              <p className="faq__answer">
-                Yes. You can create and download QR codes for free, with no account required.
-              </p>
-            </article>
-            <article className="faq__item">
-              <h3 className="faq__question">What can I create QR codes for?</h3>
-              <p className="faq__answer">
-                Create QR codes for website URLs, plain text, or Wi-Fi network details.
-              </p>
-            </article>
-            <article className="faq__item">
-              <h3 className="faq__question">Is my content uploaded?</h3>
-              <p className="faq__answer">
-                QR content is encoded and rendered locally in your browser; the QR generation flow does not send it to a server.
-              </p>
-            </article>
-            <article className="faq__item">
-              <h3 className="faq__question">Can I customize my QR code?</h3>
-              <p className="faq__answer">
-                Yes. Choose foreground and background colors, and select a size from 128×128 to 1024×1024 pixels.
-              </p>
-            </article>
-            <article className="faq__item">
-              <h3 className="faq__question">Can I download my QR code?</h3>
-              <p className="faq__answer">
-                Yes. Download your generated QR code as a PNG image.
-              </p>
-            </article>
-            <article className="faq__item">
-              <h3 className="faq__question">Do QR codes expire?</h3>
-              <p className="faq__answer">
-                QR codes have no built-in expiration date. However, an encoded URL may stop working, or Wi-Fi details may change.
-              </p>
-            </article>
+            <div className="generator__right">
+              <QRPreview
+                config={config}
+                qrData={qrData}
+                onReset={handleReset}
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <Features />
+        <section className="faq" id="faq">
+          <div className="faq__inner">
+            <h2 className="faq__title">Frequently Asked Questions</h2>
+            <div className="faq__list">
+              <article className="faq__item">
+                <h3 className="faq__question">Is QuickQR Tools free to use?</h3>
+                <p className="faq__answer">
+                  Yes. You can create and download QR codes for free, with no account required.
+                </p>
+              </article>
+              <article className="faq__item">
+                <h3 className="faq__question">What can I create QR codes for?</h3>
+                <p className="faq__answer">
+                  Create QR codes for website URLs, plain text, or Wi-Fi network details.
+                </p>
+              </article>
+              <article className="faq__item">
+                <h3 className="faq__question">Is my content uploaded?</h3>
+                <p className="faq__answer">
+                  QR content is encoded and rendered locally in your browser; the QR generation flow does not send it to a server.
+                </p>
+              </article>
+              <article className="faq__item">
+                <h3 className="faq__question">Can I customize my QR code?</h3>
+                <p className="faq__answer">
+                  Yes. Choose foreground and background colors, and select a size from 128×128 to 1024×1024 pixels.
+                </p>
+              </article>
+              <article className="faq__item">
+                <h3 className="faq__question">Can I download my QR code?</h3>
+                <p className="faq__answer">
+                  Yes. Download your generated QR code as a PNG image.
+                </p>
+              </article>
+              <article className="faq__item">
+                <h3 className="faq__question">Do QR codes expire?</h3>
+                <p className="faq__answer">
+                  QR codes have no built-in expiration date. However, an encoded URL may stop working, or Wi-Fi details may change.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
       <Footer />
     </>
   );
