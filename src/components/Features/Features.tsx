@@ -74,7 +74,7 @@ export const Features: React.FC = () => {
   return (
     <section className="features" id="features">
       <div className="features__inner">
-        <h2 className="features__title">Why QR Studio?</h2>
+        <h2 className="features__title">Why QuickQR Tools?</h2>
         <p className="features__subtitle">Everything you need to create perfect QR codes</p>
 
         <div className="features__grid">

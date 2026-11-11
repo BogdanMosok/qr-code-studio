@@ -15,7 +15,8 @@ export const Hero: React.FC = () => {
       </div>
 
       <h1 className="hero__title">
-        Generate <span>QR Codes</span> instantly in your browser
+        Free QR Code Generator – Create QR Codes
+        <span> Instantly Online</span>
       </h1>
 
       <p className="hero__subtitle">

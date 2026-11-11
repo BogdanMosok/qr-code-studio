@@ -135,21 +135,39 @@ export const Home: React.FC = () => {
           <h2 className="faq__title">Frequently Asked Questions</h2>
           <div className="faq__list">
             <article className="faq__item">
-              <h3 className="faq__question">Is QR Studio free to use?</h3>
+              <h3 className="faq__question">Is QuickQR Tools free to use?</h3>
               <p className="faq__answer">
-                Yes. Create and download QR codes for free, with no account required.
+                Yes. You can create and download QR codes for free, with no account required.
               </p>
             </article>
             <article className="faq__item">
               <h3 className="faq__question">What can I create QR codes for?</h3>
               <p className="faq__answer">
-                Create codes for website URLs, plain text, or Wi-Fi network details.
+                Create QR codes for website URLs, plain text, or Wi-Fi network details.
               </p>
             </article>
             <article className="faq__item">
               <h3 className="faq__question">Is my content uploaded?</h3>
               <p className="faq__answer">
-                No. QR codes are generated in your browser and your content stays on your device.
+                QR content is encoded and rendered locally in your browser; the QR generation flow does not send it to a server.
+              </p>
+            </article>
+            <article className="faq__item">
+              <h3 className="faq__question">Can I customize my QR code?</h3>
+              <p className="faq__answer">
+                Yes. Choose foreground and background colors, and select a size from 128×128 to 1024×1024 pixels.
+              </p>
+            </article>
+            <article className="faq__item">
+              <h3 className="faq__question">Can I download my QR code?</h3>
+              <p className="faq__answer">
+                Yes. Download your generated QR code as a PNG image.
+              </p>
+            </article>
+            <article className="faq__item">
+              <h3 className="faq__question">Do QR codes expire?</h3>
+              <p className="faq__answer">
+                QR codes have no built-in expiration date. However, an encoded URL may stop working, or Wi-Fi details may change.
               </p>
             </article>
           </div>

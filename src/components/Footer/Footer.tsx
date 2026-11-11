@@ -6,7 +6,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer__inner">
-        <p className="footer__text">© {year} QR Studio. Free & open-source QR code generator.</p>
+        <p className="footer__text">© {year} QuickQR Tools. Free QR code generator.</p>
         <div className="footer__links">
           <a href="#generator" className="footer__link">Generator</a>
           <a href="#features" className="footer__link">Features</a>

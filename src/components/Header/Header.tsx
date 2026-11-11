@@ -52,7 +52,7 @@ export const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="header__inner">
-        <a href="/" className="header__logo" aria-label="QR Studio home">
+        <a href="/" className="header__logo" aria-label="QuickQR Tools home">
           <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="32" height="32" rx="6" fill="#7c3aed" />
             <rect x="6" y="6" width="8" height="8" rx="1.5" fill="white" />
@@ -60,7 +60,7 @@ export const Header: React.FC = () => {
             <rect x="6" y="18" width="8" height="8" rx="1.5" fill="white" />
             <rect x="20" y="20" width="4" height="4" rx="1" fill="white" />
           </svg>
-          QR Studio
+          QuickQR Tools
         </a>
 
         <nav
