@@ -1,0 +1,114 @@
+@use '../../styles/variables' as *;
+
+.hero {
+  padding: 80px 24px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  // Subtle gradient background
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, $violet-50 0%, $white 100%);
+    z-index: -1;
+  }
+
+  @include mobile {
+    padding: 48px 16px 40px;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: $violet-100;
+    color: $violet-700;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    animation: fadeIn 0.5s ease;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &__title {
+    font-size: 3.25rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: $black;
+    max-width: 720px;
+    margin: 0 auto 16px;
+    animation: fadeIn 0.5s ease 0.1s both;
+
+    span {
+      background: linear-gradient(135deg, $violet-600 0%, $violet-400 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @include mobile {
+      font-size: 2rem;
+    }
+
+    @include tablet {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.125rem;
+    color: $gray-500;
+    max-width: 520px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+    animation: fadeIn 0.5s ease 0.2s both;
+
+    @include mobile {
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: $violet-600;
+    color: $white;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: $radius-lg;
+    transition: all $transition-base;
+    box-shadow: 0 4px 14px rgba($violet-600, 0.35);
+    animation: fadeIn 0.5s ease 0.3s both;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      transition: transform $transition-base;
+    }
+
+    &:hover {
+      background: $violet-700;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba($violet-600, 0.4);
+
+      svg {
+        transform: translateX(2px);
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

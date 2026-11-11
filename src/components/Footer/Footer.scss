@@ -1,0 +1,43 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  margin-top: auto;
+  background: $gray-50;
+  border-top: 1px solid $gray-200;
+  padding: 32px 24px;
+
+  &__inner {
+    max-width: $bp-wide;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    @include mobile {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &__text {
+    font-size: 0.8125rem;
+    color: $gray-500;
+  }
+
+  &__links {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__link {
+    font-size: 0.8125rem;
+    color: $gray-500;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $violet-600;
+    }
+  }
+}

@@ -1,0 +1,126 @@
+@use '../../styles/variables' as *;
+
+.generator {
+  padding: 64px 24px 80px;
+  max-width: $bp-wide;
+  margin: 0 auto;
+  scroll-margin-top: 80px;
+
+  @include mobile {
+    padding: 32px 16px 48px;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 48px;
+
+    @include mobile {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $black;
+    margin-bottom: 8px;
+
+    @include mobile {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    color: $gray-500;
+  }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+
+    @include tablet {
+      gap: 32px;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  &__left {
+    background: $white;
+    border: 1px solid $gray-200;
+    border-radius: $radius-xl;
+    padding: 28px;
+    box-shadow: $shadow-sm;
+
+    @include mobile {
+      padding: 20px;
+    }
+  }
+
+  &__right {
+    position: sticky;
+    top: 88px;
+
+    @include mobile {
+      position: static;
+    }
+  }
+}
+
+.faq {
+  padding: 80px 24px;
+  background: $white;
+  scroll-margin-top: 80px;
+
+  @include mobile {
+    padding: 48px 16px;
+    scroll-margin-top: 72px;
+  }
+
+  &__inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    margin-bottom: 32px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $black;
+
+    @include mobile {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: 16px;
+  }
+
+  &__item {
+    padding: 20px 24px;
+    border: 1px solid $gray-200;
+    border-radius: $radius-lg;
+    background: $white;
+  }
+
+  &__question {
+    margin-bottom: 8px;
+    color: $black;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  &__answer {
+    color: $gray-500;
+    font-size: 0.9rem;
+  }
+}
