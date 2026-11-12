@@ -18,7 +18,7 @@ function getGtag(): NonNullable<Window['gtag']> {
   if (!window.gtag) {
     window.dataLayer = window.dataLayer || [];
 
-    window.gtag = function (...args) {
+    window.gtag = function (..._args) {
       window.dataLayer?.push(arguments as unknown as AnalyticsCommand);
     };
   }
