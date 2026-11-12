@@ -17,8 +17,9 @@ let lastPageViewPath: string | null = null;
 function getGtag(): NonNullable<Window['gtag']> {
   if (!window.gtag) {
     window.dataLayer = window.dataLayer || [];
-    window.gtag = (...args) => {
-      window.dataLayer?.push(args);
+
+    window.gtag = function (...args) {
+      window.dataLayer?.push(arguments as unknown as AnalyticsCommand);
     };
   }
 
