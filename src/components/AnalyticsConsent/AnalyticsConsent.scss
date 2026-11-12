@@ -1,0 +1,64 @@
+@use '../../styles/variables' as *;
+
+.analytics-consent {
+  position: fixed;
+  z-index: 20;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: min(620px, calc(100% - 32px));
+  padding: 18px 20px;
+  border: 1px solid $gray-200;
+  border-radius: $radius-lg;
+  background: $white;
+  box-shadow: $shadow-lg;
+
+  @include mobile {
+    right: 16px;
+    bottom: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  &__message {
+    flex: 1;
+    color: $gray-600;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__button {
+    padding: 8px 14px;
+    border: 1px solid $gray-200;
+    border-radius: $radius-md;
+    color: $gray-700;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    transition: background-color $transition-fast, border-color $transition-fast;
+
+    &--accept {
+      border-color: $violet-600;
+      background: $violet-600;
+      color: $white;
+
+      &:hover {
+        border-color: $violet-700;
+        background: $violet-700;
+      }
+    }
+
+    &--reject:hover {
+      border-color: $gray-300;
+      background: $gray-50;
+    }
+  }
+}

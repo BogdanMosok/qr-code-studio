@@ -1,6 +1,7 @@
 import { useEffect, useRef, useCallback, useState } from 'react';
 import QRCode from 'qrcode';
 import type { QRConfig } from '../../types';
+import { trackAnalyticsEvent } from '../../lib/analytics';
 import './QRPreview.scss';
 
 interface QRPreviewProps {
@@ -16,6 +17,7 @@ interface PreviewError {
 
 export const QRPreview: React.FC<QRPreviewProps> = ({ config, qrData, onReset }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const lastTrackedGeneration = useRef<{ data: string; type: QRConfig['type'] } | null>(null);
   const hasData = qrData.length > 0;
   const generationKey = JSON.stringify([
     qrData,
@@ -27,7 +29,11 @@ export const QRPreview: React.FC<QRPreviewProps> = ({ config, qrData, onReset })
   const error = previewError?.key === generationKey ? previewError.message : null;
 
   useEffect(() => {
-    if (!canvasRef.current || !hasData) return;
+    if (!hasData) {
+      lastTrackedGeneration.current = null;
+      return;
+    }
+    if (!canvasRef.current) return;
 
     let active = true;
     QRCode.toCanvas(canvasRef.current, qrData, {
@@ -38,6 +44,15 @@ export const QRPreview: React.FC<QRPreviewProps> = ({ config, qrData, onReset })
         light: config.bgColor,
       },
       errorCorrectionLevel: 'M',
+    }).then(() => {
+      const lastGeneration = lastTrackedGeneration.current;
+      if (active && (lastGeneration?.data !== qrData || lastGeneration?.type !== config.type)) {
+        lastTrackedGeneration.current = { data: qrData, type: config.type };
+        trackAnalyticsEvent('qr_code_generated', {
+          qr_type: config.type,
+          qr_size: config.size,
+        });
+      }
     }).catch(() => {
       if (active) {
         setPreviewError({
@@ -50,7 +65,7 @@ export const QRPreview: React.FC<QRPreviewProps> = ({ config, qrData, onReset })
     return () => {
       active = false;
     };
-  }, [qrData, config.size, config.fgColor, config.bgColor, generationKey, hasData]);
+  }, [qrData, config.type, config.size, config.fgColor, config.bgColor, generationKey, hasData]);
 
   const handleDownload = useCallback(() => {
     if (!hasData) return;
@@ -72,6 +87,10 @@ export const QRPreview: React.FC<QRPreviewProps> = ({ config, qrData, onReset })
         document.body.append(link);
         link.click();
         link.remove();
+        trackAnalyticsEvent('qr_code_downloaded', {
+          qr_type: config.type,
+          qr_size: config.size,
+        });
       })
       .catch(() => {
         setPreviewError({
