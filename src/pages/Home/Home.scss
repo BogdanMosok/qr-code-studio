@@ -73,6 +73,117 @@
   }
 }
 
+.guide {
+  padding: 80px 24px;
+  background: $gray-50;
+
+  @include mobile {
+    padding: 48px 16px;
+  }
+
+  &__inner {
+    max-width: $bp-wide;
+    margin: 0 auto;
+  }
+
+  &__section {
+    margin-bottom: 64px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mobile {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $black;
+
+    @include mobile {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__intro {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    text-align: center;
+    color: $gray-500;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    list-style: none;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  &__card {
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid $gray-200;
+    border-radius: $radius-lg;
+    background: $white;
+  }
+
+  &__step-number {
+    display: block;
+    margin-bottom: 12px;
+    color: $violet-600;
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+
+  &__card-title {
+    margin-bottom: 8px;
+    color: $black;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  &__card-text {
+    color: $gray-500;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  &__tips {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+    border: 1px solid $gray-200;
+    border-radius: $radius-lg;
+    background: $white;
+    color: $gray-500;
+    font-size: 0.9rem;
+
+    ul {
+      margin: 16px 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+  }
+}
+
 .faq {
   padding: 80px 24px;
   background: $white;
